@@ -1,12 +1,12 @@
 DI=$( dirname -- "$0"; )
 
 mv hiddifypanel/VERSION VERSION
-pyarmor gen -r -O . hiddifypanel
+pyarmor gen -r -O . hiddifypanel || exit 1
 mv VERSION hiddifypanel/VERSION 
 files=$(find . -name '*.py')
 for f in  $files ;do 
     echo $l $f
-    sed -i "s|Pyarmor 8.1.0 (trial), 000000,||g" $f
+    sed -i "s|Pyarmor 8.1.5 (trial), 000000,||g" $f
     cat $DI/comment.txt>> $f
 done
 
