@@ -13,6 +13,8 @@ from wtforms.validators import ValidationError
 from flask import flash as flask_flash
 to_gig_d = 1000*1000*1000
 
+from .hiddify import *
+from .hiddify2 import *
 
 def get_user_link(uuid, domain, mode='',username=''):
     is_cdn= domain.mode == DomainType.cdn
