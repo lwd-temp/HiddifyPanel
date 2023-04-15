@@ -13,8 +13,7 @@ from wtforms.validators import ValidationError
 from flask import flash as flask_flash
 to_gig_d = 1000*1000*1000
 
-from .hiddify import *
-from .hiddify2 import *
+
 def flash(message, category):
     print(message)
     return flask_flash(Markup(message), category)
@@ -163,3 +162,5 @@ def add_or_update_parent_domains(commit=True,**parent_domain):
     if commit:
         db.session.commit()
 
+from .hiddify import *
+from .hiddify2 import *

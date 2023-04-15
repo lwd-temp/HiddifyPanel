@@ -12,8 +12,6 @@ from flask import jsonify, g, url_for, Markup
 from wtforms.validators import ValidationError
 from flask import flash as flask_flash
 to_gig_d = 1000*1000*1000
-from .hiddify import *
-from .hiddify3 import *
 
 
 def add_or_update_proxy(commit=True,child_id=0,**proxy):
@@ -313,3 +311,6 @@ def get_folder_size(folder_path):
     except:
         pass
     return total_size
+
+from .hiddify3 import *
+from .hiddify import *

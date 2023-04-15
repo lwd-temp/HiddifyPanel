@@ -12,8 +12,6 @@ from flask import jsonify, g, url_for, Markup
 from wtforms.validators import ValidationError
 from flask import flash as flask_flash
 to_gig_d = 1000*1000*1000
-from .hiddify2 import *
-from .hiddify3 import *
 def add_temporary_access():
     import random
 
@@ -213,3 +211,5 @@ def check_connection_for_domain(domain):
                 return False
     return True
 
+from .hiddify2 import *
+from .hiddify3 import *
