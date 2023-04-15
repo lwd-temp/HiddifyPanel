@@ -15,38 +15,6 @@ to_gig_d = 1000*1000*1000
 
 from .hiddify import *
 from .hiddify2 import *
-
-def get_user_link(uuid, domain, mode='',username=''):
-    is_cdn= domain.mode == DomainType.cdn
-    proxy_path = hconfig(ConfigEnum.proxy_path)
-    res = ""
-    if mode == "multi":
-        res += "<div class='btn-group'>"
-    d=domain.domain
-    if "*" in d:
-        d=d.replace("*",get_random_string(5,15))
-
-    link = f"https://{d}/{proxy_path}/{uuid}/#{username}"
-    link_multi = f"{link}multi"
-    # if mode == 'new':
-    #     link = f"{link}new"
-    text = domain.domain
-    color_cls='info'
-    if domain.mode in [DomainType.cdn,DomainType.auto_cdn_ip]:
-        auto_cdn=(domain.mode==DomainType.auto_cdn_ip) or (domain.cdn_ip and "MTN" in domain.cdn_ip)
-        color_cls="success" if auto_cdn else 'warning'
-        text = f'<span class="badge badge-secondary" >{"Auto" if auto_cdn else "CDN"}</span> '+text
-        
-
-    if mode == "multi":
-        res += f"<a class='btn btn-xs btn-secondary' target='_blank' href='{link_multi}' >{_('all')}</a>"
-    res += f"<a target='_blank' href='{link}' class='btn btn-xs btn-{color_cls} ltr' ><i class='fa-solid fa-arrow-up-right-from-square d-none'></i> {text}</a>"
-
-    if mode == "multi":
-        res += "</div>"
-    return res
-
-
 def flash(message, category):
     print(message)
     return flask_flash(Markup(message), category)
