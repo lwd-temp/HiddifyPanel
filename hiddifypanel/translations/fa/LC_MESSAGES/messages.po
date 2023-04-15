@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  HiddifyPanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-11 19:01+0200\n"
-"PO-Revision-Date: 2023-04-11 10:51-0500\n"
+"POT-Creation-Date: 2023-04-15 18:55+0200\n"
+"PO-Revision-Date: 2023-04-15 11:55-0500\n"
 "Last-Translator: hidden u\n"
 "Language: fa\n"
 "Language-Team: Persian\n"
@@ -52,12 +52,12 @@ msgstr "تنظیمات با موفقیت تغییر کرد."
 #: hiddifypanel/panel/admin/ChildAdmin.py:108
 #: hiddifypanel/panel/admin/DomainAdmin.py:117
 #: hiddifypanel/panel/admin/DomainAdmin.py:142
-#: hiddifypanel/panel/admin/QuickSetup.py:117 hiddifypanel/panel/hiddify.py:260
+#: hiddifypanel/panel/admin/QuickSetup.py:117 hiddifypanel/panel/hiddify3.py:60
 msgid "Domain can not be resolved! there is a problem in your domain"
 msgstr "دامنه قابل دسترسی نیست! در دامنه شما مشکلی وجود دارد."
 
 # | msgid "Last Day"
-#: hiddifypanel/panel/hiddify.py:288
+#: hiddifypanel/panel/hiddify3.py:88
 msgid "0 - Last day"
 msgstr "آخرین روز"
 
@@ -2015,7 +2015,7 @@ msgstr ""
 # | "Hooray 🎉 🎉 🎉 \n"
 # | "Welcome to HiddifyBot.\n"
 # | "Start by clicking the link on the panel or entering your UUID."
-#: hiddifypanel/panel/commercial/telegrambot/Usage.py:16
+#: hiddifypanel/panel/commercial/telegrambot/Usage.py:17
 #: hiddifypanel/panel/commercial/telegrambot/information.py:55
 msgid ""
 "Hooray 🎉 🎉 🎉 \n"
@@ -3060,6 +3060,11 @@ msgstr "تنظیمات پرکاربرد"
 msgid "Telegram Bot"
 msgstr "بات تلگرام"
 
+#: hiddifypanel/templates/admin-layout.html:200
+#, fuzzy
+msgid "Are you sure you want to do this action?"
+msgstr "آیا مطمئن هستید که می خواهید این عمل را انجام دهید؟"
+
 # | msgid ""
 # | "We need your help In developing this project\n"
 # | "<br>\n"
@@ -3514,4 +3519,45 @@ msgstr "عملیات"
 # | msgid "CDN Make It Incorrect"
 #~ msgid "CDN make it incorrect"
 #~ msgstr "CDN نادرستش می‌کنه"
+
+#~ msgid "Access Denied"
+#~ msgstr "دسترسی غیر مجاز"
+
+#~ msgid "User activated!"
+#~ msgstr "پکیچ شما فعال شد"
+
+#~ msgid "Package ended!"
+#~ msgstr "پکیج شما به پایان رسید"
+
+#~ msgid "Add some text that is only visible to super_admin."
+#~ msgstr "متنی را اضافه کنید که فقط برای سوپرادمین ها قابل مشاهده هست"
+
+#~ msgid "Define the admin mode. "
+#~ msgstr "نوع ادمین را مشخص کنید"
+
+#~ msgid ""
+#~ "Please understand that parent panel is"
+#~ " under test and the plan and "
+#~ "the condition of use maybe change "
+#~ "at anytime."
+#~ msgstr ""
+#~ "لطفاً توجه داشته باشید که پانل "
+#~ "مادر در حال آزمایش است و طرح "
+#~ "و شرایط استفاده ممکن است در هر "
+#~ "زمان تغییر کند."
+
+#~ msgid "This can be used for giving your users a permanent non blockable links."
+#~ msgstr ""
+#~ "این می تواند برای دادن لینک های"
+#~ " غیرقابل مسدود دائمی به کاربران شما"
+#~ " استفاده شود."
+
+#~ msgid "Only for sublink?"
+#~ msgstr "فقط برای زیر لینک؟"
+
+#~ msgid "Added by"
+#~ msgstr "اضافه شده توسط"
+
+#~ msgid "Admins"
+#~ msgstr "ادمین ها"
 

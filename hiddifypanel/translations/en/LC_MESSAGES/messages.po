@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: HiddifyPanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-11 19:01+0200\n"
-"PO-Revision-Date: 2023-04-11 10:51-0500\n"
+"POT-Creation-Date: 2023-04-15 18:55+0200\n"
+"PO-Revision-Date: 2023-04-15 11:55-0500\n"
 "Last-Translator: hidden u\n"
 "Language-Team: English (USA)\n"
 "Language: en_US\n"
@@ -50,14 +50,14 @@ msgstr "Configs have been changed successfully."
 #: hiddifypanel/panel/admin/DomainAdmin.py:117
 #: hiddifypanel/panel/admin/DomainAdmin.py:142
 #: hiddifypanel/panel/admin/QuickSetup.py:117
-#: hiddifypanel/panel/hiddify.py:260
+#: hiddifypanel/panel/hiddify3.py:60
 msgid "Domain can not be resolved! there is a problem in your domain"
 msgstr ""
 "Domain can not be resolved! There is a problem in your domain. Please check "
 "your Domain configurations."
 
 # | msgid "Last Day"
-#: hiddifypanel/panel/hiddify.py:288
+#: hiddifypanel/panel/hiddify3.py:88
 msgid "0 - Last day"
 msgstr "Last Day"
 
@@ -347,7 +347,6 @@ msgid "You have used this domain in: "
 msgstr "You have already used this domain in: "
 
 #: hiddifypanel/panel/admin/DomainAdmin.py:130
-#, fuzzy
 msgid "Can not connect to Cloudflare."
 msgstr "Can not connect to Cloudflare."
 
@@ -574,7 +573,6 @@ msgid "lang.zh"
 msgstr "Chinese چینی 中国人"
 
 #: hiddifypanel/panel/admin/SettingAdmin.py:156
-#, fuzzy
 msgid "Others"
 msgstr "Others"
 
@@ -687,7 +685,6 @@ msgid "Reset package usage"
 msgstr "Reset Package's Usage"
 
 #: hiddifypanel/panel/admin/UserAdmin.py:27
-#, fuzzy
 msgid "Disable User"
 msgstr "Disable User"
 
@@ -1951,7 +1948,7 @@ msgstr ""
 # | "Hooray 🎉 🎉 🎉 \n"
 # | "Welcome to HiddifyBot.\n"
 # | "Start by clicking the link on the panel or entering your UUID."
-#: hiddifypanel/panel/commercial/telegrambot/Usage.py:16
+#: hiddifypanel/panel/commercial/telegrambot/Usage.py:17
 #: hiddifypanel/panel/commercial/telegrambot/information.py:55
 msgid ""
 "Hooray 🎉 🎉 🎉 \n"
@@ -2958,6 +2955,10 @@ msgstr "Common Settings"
 msgid "Telegram Bot"
 msgstr "Telegram Bot"
 
+#: hiddifypanel/templates/admin-layout.html:200
+msgid "Are you sure you want to do this action?"
+msgstr "Are you sure you want to do this action?"
+
 # | msgid ""
 # | "We need your help In developing this project\n"
 # | "<br>\n"
@@ -3347,3 +3348,39 @@ msgstr "Actions"
 # | msgid "CDN Make It Incorrect"
 #~ msgid "CDN make it incorrect"
 #~ msgstr "CDN Make It Incorrect"
+
+#~ msgid "Access Denied"
+#~ msgstr "Access Denied"
+
+#~ msgid "User activated!"
+#~ msgstr "User activated!"
+
+#~ msgid "Package ended!"
+#~ msgstr "Package ended!"
+
+#~ msgid "Add some text that is only visible to super_admin."
+#~ msgstr "Add some text that is only visible to super_admin."
+
+#~ msgid "Define the admin mode. "
+#~ msgstr "Define the admin mode. "
+
+#~ msgid ""
+#~ "Please understand that parent panel is under test and the plan and the "
+#~ "condition of use maybe change at anytime."
+#~ msgstr ""
+#~ "Please understand that parent panel is under test and the plan and the "
+#~ "condition of use maybe change at anytime."
+
+#~ msgid ""
+#~ "This can be used for giving your users a permanent non blockable links."
+#~ msgstr ""
+#~ "This can be used for giving your users a permanent non blockable links."
+
+#~ msgid "Only for sublink?"
+#~ msgstr "Only for sublink?"
+
+#~ msgid "Added by"
+#~ msgstr "Added by"
+
+#~ msgid "Admins"
+#~ msgstr "Admins"

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  HiddifyPanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-11 19:01+0200\n"
-"PO-Revision-Date: 2023-04-11 10:51-0500\n"
+"POT-Creation-Date: 2023-04-15 18:55+0200\n"
+"PO-Revision-Date: 2023-04-15 11:55-0500\n"
 "Last-Translator: hidden u\n"
 "Language: zh\n"
 "Language-Team: Chinese\n"
@@ -53,12 +53,12 @@ msgstr "配置已成功更改。"
 #: hiddifypanel/panel/admin/ChildAdmin.py:108
 #: hiddifypanel/panel/admin/DomainAdmin.py:117
 #: hiddifypanel/panel/admin/DomainAdmin.py:142
-#: hiddifypanel/panel/admin/QuickSetup.py:117 hiddifypanel/panel/hiddify.py:260
+#: hiddifypanel/panel/admin/QuickSetup.py:117 hiddifypanel/panel/hiddify3.py:60
 msgid "Domain can not be resolved! there is a problem in your domain"
 msgstr "域名无法解析！你的域有问题"
 
 # | msgid "Last Day"
-#: hiddifypanel/panel/hiddify.py:288
+#: hiddifypanel/panel/hiddify3.py:88
 #, fuzzy
 msgid "0 - Last day"
 msgstr "0 - 最后一天"
@@ -564,8 +564,9 @@ msgid "lang.zh"
 msgstr "Chinese چینی 中国人"
 
 #: hiddifypanel/panel/admin/SettingAdmin.py:156
+#, fuzzy
 msgid "Others"
-msgstr ""
+msgstr "其他的"
 
 #: hiddifypanel/panel/admin/SettingAdmin.py:158
 #: hiddifypanel/panel/commercial/CommercialSettings.py:154
@@ -678,8 +679,9 @@ msgid "Reset package usage"
 msgstr "重置包的使用。"
 
 #: hiddifypanel/panel/admin/UserAdmin.py:27
+#, fuzzy
 msgid "Disable User"
-msgstr ""
+msgstr "禁用用户"
 
 # | msgid "Actions"
 #: hiddifypanel/panel/admin/UserAdmin.py:60
@@ -1936,7 +1938,7 @@ msgstr ""
 # | "Hooray 🎉 🎉 🎉 \n"
 # | "Welcome to HiddifyBot.\n"
 # | "Start by clicking the link on the panel or entering your UUID."
-#: hiddifypanel/panel/commercial/telegrambot/Usage.py:16
+#: hiddifypanel/panel/commercial/telegrambot/Usage.py:17
 #: hiddifypanel/panel/commercial/telegrambot/information.py:55
 #, fuzzy
 msgid ""
@@ -2943,6 +2945,11 @@ msgstr "商业设置"
 msgid "Telegram Bot"
 msgstr "电报机器人"
 
+#: hiddifypanel/templates/admin-layout.html:200
+#, fuzzy
+msgid "Are you sure you want to do this action?"
+msgstr "您确定要执行此操作吗？"
+
 # | msgid ""
 # | "We need your help In developing this project\n"
 # | "<br>\n"
@@ -3345,4 +3352,38 @@ msgstr "动作"
 # | msgid "CDN Make It Incorrect"
 #~ msgid "CDN make it incorrect"
 #~ msgstr "CDN使它不正确"
+
+#~ msgid "Access Denied"
+#~ msgstr ""
+
+#~ msgid "User activated!"
+#~ msgstr "用户激活！"
+
+#~ msgid "Package ended!"
+#~ msgstr "套餐结束！"
+
+#~ msgid "Add some text that is only visible to super_admin."
+#~ msgstr "添加一些仅对 super_admin 可见的文本。"
+
+#~ msgid "Define the admin mode. "
+#~ msgstr "定义管理模式。"
+
+#~ msgid ""
+#~ "Please understand that parent panel is"
+#~ " under test and the plan and "
+#~ "the condition of use maybe change "
+#~ "at anytime."
+#~ msgstr "请理解母面板正在测试中，计划和使用条件可能随时更改。"
+
+#~ msgid "This can be used for giving your users a permanent non blockable links."
+#~ msgstr "这可用于为您的用户提供永久的不可阻止的链接。"
+
+#~ msgid "Only for sublink?"
+#~ msgstr "仅用于子链接？"
+
+#~ msgid "Added by"
+#~ msgstr "添加者"
+
+#~ msgid "Admins"
+#~ msgstr "管理员"
 
