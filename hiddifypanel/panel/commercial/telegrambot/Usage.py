@@ -11,9 +11,12 @@ def send_welcome(message):
     text = message.text
     uuid = text.split()[-1] if len(text.split()) > 0 else None
     if uuid:
-        bot.reply_to(message, get_usage_msg(uuid), reply_markup=user_keyboard(uuid))
-    else:
-        bot.reply_to(message,
+        try:
+            bot.reply_to(message, get_usage_msg(uuid), reply_markup=user_keyboard(uuid))
+            return
+        except:
+            pass
+    bot.reply_to(message,
                      _("Hooray \U0001F389 \U0001F389 \U0001F389 \n"
                        "Welcome to hiddifybot.\n"
                        "Start by clicking the link on the panel or entering your UUID."))
@@ -34,7 +37,7 @@ def user_keyboard(uuid):
 
 def get_usage_msg(uuid):
     with app.app_context():
-        
+            
         user_data = get_common_data(uuid, 'multi')
 
         user = user_data['user']
