@@ -30,9 +30,9 @@ class QuickSetup(FlaskView):
                 lang_form=get_lang_form()
                 if lang_form.lang_submit.data:
                         if lang_form.validate_on_submit():
-                                StrConfig.query.filter(StrConfig.key==ConfigEnum.lang,StrConfig.child_id==0).first().value=lang_form.admin_lang.data
-                                StrConfig.query.filter(StrConfig.key==ConfigEnum.admin_lang,StrConfig.child_id==0).first().value=lang_form.admin_lang.data
-                                StrConfig.query.filter(StrConfig.key==ConfigEnum.country,StrConfig.child_id==0).first().value=lang_form.country.data
+                                set_hconfig(ConfigEnum.lang, lang_form.admin_lang.data)
+                                set_hconfig(ConfigEnum.admin_lang, lang_form.admin_lang.data)
+                                set_hconfig(ConfigEnum.country, lang_form.country.data)
                                 db.session.commit()
                                 
                                 flask_babel.refresh()
@@ -60,7 +60,7 @@ class QuickSetup(FlaskView):
                         
                         db.session.commit()
                         # hiddify.flash_config_success()
-                        proxy_path=hconfig(ConfigEnum.proxy_path)
+                        # proxy_path=hconfig(ConfigEnum.proxy_path)
                         # uuid=User.query.first().uuid
                         # userlink=f"<a class='btn btn-secondary share-link' target='_blank' href='https://{quick_form.domain.data}/{proxy_path}/{uuid}/'>{_('default user link')}</a>"
                         # flash((_('The default user link is %(link)s. To add or edit more users, please visit users from menu.',link=userlink)),'info')
@@ -79,7 +79,7 @@ def get_lang_form(empty=False):
                 country=wtf.fields.SelectField(_("config.country.label"),choices=[("ir",_("Iran")),("zh",_("China")),("other","Others")],description=_("config.country.description"),default=hconfig(ConfigEnum.country))
                 lang_submit=wtf.fields.SubmitField(_('Submit'))
         
-        return LangForm(None)if empty else LangForm()
+        return LangForm(None) if empty else LangForm()
 def get_quick_setup_form(empty=False):
         def get_used_domains():
                 configs=get_hconfigs()

@@ -52,7 +52,7 @@ def check_need_reset(old_configs,do=False):
 def format_timedelta(delta, add_direction=True,granularity="days"):
     res=delta.days
     print(delta.days)
-    locale=g.locale if g and hasattr(g, "locale") else hconfig(ConfigEnum.admin_lang)
+    locale=g.locale if g and hasattr(g, "locale") and g.locale  else hconfig(ConfigEnum.admin_lang)
     if granularity=="days" and delta.days==0:
         res= _("0 - Last day")
     elif delta.days < 7 or delta.days >= 60:
