@@ -12,7 +12,7 @@ from flask import jsonify, g, url_for, Markup
 from wtforms.validators import ValidationError
 from flask import flash as flask_flash
 to_gig_d = 1000*1000*1000
-
+import random
 
 def flash(message, category):
     print(message)
@@ -161,6 +161,29 @@ def add_or_update_parent_domains(commit=True,**parent_domain):
         Domain.domain.in_(show_domains)).all()
     if commit:
         db.session.commit()
+
+
+def get_random_domains(count=1,retry=3):
+    try:
+        irurl="https://api.ooni.io/api/v1/measurements?probe_cc=IR&test_name=web_connectivity&anomaly=false&confirmed=false&failure=false&order_by=test_start_time&limit=1000"
+        # cnurl="https://api.ooni.io/api/v1/measurements?probe_cc=CN&test_name=web_connectivity&anomaly=false&confirmed=false&failure=false&order_by=test_start_time&limit=1000"
+        import requests
+        data_ir=requests.get(irurl).json()
+        # data_cn=requests.get(url).json()
+        from urllib.parse import urlparse
+        domains=[urlparse(d['input']).netloc.lower() for d in data_ir['results'] if d['scores']['blocking_country']==0.0]
+        domains=[d for d in domains if not d.endswith(".ir")]
+        
+        return random.sample(domains, count)
+    except Exception as e:
+        print('Error, getting random domains... ',e,'retrying...',retry)
+        if retry<=0:
+            defdomains=["fa.wikipedia.org",'en.wikipedia.org','wikipedia.org','yahoo.com','en.yahoo.com']
+            print('Error, using default domains')
+            return random.sample(defdomains, count)
+        return get_random_domains(count,retry-1)
+
+
 
 from .hiddify import *
 from .hiddify2 import *

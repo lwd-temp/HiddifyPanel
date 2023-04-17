@@ -27,7 +27,7 @@ export TWINE_USERNAME=__token__
 export TWINE_PASSWORD=$TWINE_PASSWORD
 source ~/anaconda3/etc/profile.d/conda.sh
 
-for pythonversion in 3.10 3.11 3.8 3.9 3.10;do
+for pythonversion in 3.11 3.10 3.8 3.9;do
        
        cp -rf . ../tmp_release/$pythonversion
        pushd ../tmp_release/$pythonversion
