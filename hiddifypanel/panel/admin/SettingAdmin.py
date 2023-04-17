@@ -86,7 +86,7 @@ class SettingAdmin(FlaskView):
             # if :
             #     return reset_action
             
-            if old_configs[ConfigEnum.admin_lang]!=hconfig(ConfigEnum.admin_lang):
+            if old_configs.get(ConfigEnum.admin_lang)!=hconfig(ConfigEnum.admin_lang):
                 form=get_config_form()
         else:
             flash(_('config.validation-error'), 'danger')

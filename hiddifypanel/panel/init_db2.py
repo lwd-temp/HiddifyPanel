@@ -165,3 +165,5 @@ def get_random_domains(count=1,retry=3):
             return random.sample(defdomains, count)
         return get_random_domains(count,retry-1)
 
+
+from .init_db import *

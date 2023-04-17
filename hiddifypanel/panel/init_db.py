@@ -13,7 +13,7 @@ import random
 import uuid
 import urllib
 import string
-from .init_db2 import *
+
 def init_db():
     db.create_all()   
     
@@ -240,3 +240,5 @@ def _v1():
 
         
         db.session.bulk_save_objects(data)
+
+from .init_db2 import *
