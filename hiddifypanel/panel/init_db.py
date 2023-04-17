@@ -79,9 +79,28 @@ def init_db():
         db.session.commit()
         set_hconfig(ConfigEnum.db_version,db_version,commit=False)
     
-    
+
     db.session.commit()
     return BoolConfig.query.all()
+
+def _v28():
+    add_config_if_not_exist(ConfigEnum.telegram_lib, "python")
+    add_config_if_not_exist(ConfigEnum.admin_lang, hconfig(ConfigEnum.lang))
+    add_config_if_not_exist(ConfigEnum.branding_title, "")
+    add_config_if_not_exist(ConfigEnum.branding_site, "")
+    add_config_if_not_exist(ConfigEnum.branding_freetext, "")
+    add_config_if_not_exist(ConfigEnum.v2ray_enable, False)
+    add_config_if_not_exist(ConfigEnum.is_parent, False)
+    add_config_if_not_exist(ConfigEnum.parent_panel, '')
+    add_config_if_not_exist(ConfigEnum.unique_id,str(uuid.uuid4()))
+    
+    try:
+        Proxy.query.filter(Proxy.name=='tls XTLS direct trojan').delete()
+        Proxy.query.filter(Proxy.name=='tls XTLSVision direct trojan').delete()
+    except:
+        pass
+
+
 
 def _v27():
     # add_config_if_not_exist(ConfigEnum.cloudflare, "")
@@ -258,27 +277,6 @@ import urllib
 import string
 
 
-def _v2():
-    add_config_if_not_exist(ConfigEnum.telegram_lib, "python")
-    add_config_if_not_exist(ConfigEnum.admin_lang, hconfig(ConfigEnum.lang))
-
-def _v3():
-    add_config_if_not_exist(ConfigEnum.branding_title, "")
-    add_config_if_not_exist(ConfigEnum.branding_site, "")
-    add_config_if_not_exist(ConfigEnum.branding_freetext, "")
-    add_config_if_not_exist(ConfigEnum.v2ray_enable, False)
-        
-
-def _v6():
-    try:
-        Proxy.query.filter(Proxy.name=='tls XTLS direct trojan').delete()
-        Proxy.query.filter(Proxy.name=='tls XTLSVision direct trojan').delete()
-    except:
-        pass
-    # db.session.bulk_save_objects([
-    #     *make_proxy_rows(["XTLS direct vless"])
-    # ])
-
 
 def _v9():
     try:
@@ -289,10 +287,7 @@ def _v9():
     except:
         pass
     
-    add_config_if_not_exist(ConfigEnum.is_parent, False)
-    add_config_if_not_exist(ConfigEnum.parent_panel, '')
-    add_config_if_not_exist(ConfigEnum.unique_id,str(uuid.uuid4()))
-
+    
 def _v10():
     all_configs=get_hconfigs()
     try:        
