@@ -18,18 +18,19 @@ from loguru import logger
 from hiddifypanel.panel.init_db import init_db
 
 
-def init_logger():
-    def dynamic_formatter(record) -> str:
-        fmt = '<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>'
-        if record['extra']:
-            fmt += ' | <level>{extra}</level>'
-        return fmt + '\n'
+def logger_dynamic_formatter(record) -> str:
+    fmt = '<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>'
+    if record['extra']:
+        fmt += ' | <level>{extra}</level>'
+    return fmt + '\n'
 
+
+def init_logger(app, cli):
     # configure logger
-    from hiddifypanel.models import ConfigEnum, hconfig
     logger.remove()
-    logger.add(sys.stderr, format=dynamic_formatter, level=hconfig(ConfigEnum.log_level), colorize=True, catch=True, enqueue=True, diagnose=False, backtrace=True)
-    # logger.trace('Logger initiated :)')
+    logger.add(sys.stderr if cli else sys.stdout, format=logger_dynamic_formatter, level=app.config['STDOUT_LOG_LEVEL'],
+               colorize=True, catch=True, enqueue=True, diagnose=False, backtrace=True)
+    logger.trace('Logger initiated :)')
 
 
 # TODO: refactor this function
@@ -86,20 +87,20 @@ def create_app(*args, cli=False, **config):
             v = True if v.lower() == "true" else (False if v.lower() == "false" else v)
 
         app.config[c] = v
-
+    init_logger(app, cli)
     hiddifypanel.database.init_app(app)
     with app.app_context():
         init_db()
-
-        init_logger()
+        logger.add(app.config['HIDDIFY_CONFIG_PATH'] + "/log/system/panel.log", format=logger_dynamic_formatter, level=hconfig(ConfigEnum.log_level),
+                   colorize=True, catch=True, enqueue=True, diagnose=False, backtrace=True)
 
     def get_locale():
         # Put your logic here. Application can store locale in
         # user profile, cookie, session, etc.
         if "admin" in request.base_url:
-            g.locale = auth.current_account.lang or hconfig(ConfigEnum.admin_lang) or 'fa'
+            g.locale = hconfig(ConfigEnum.admin_lang) or 'en'
         else:
-            g.locale = auth.current_account.lang or hconfig(ConfigEnum.lang) or 'fa'
+            g.locale = auth.current_account.lang or hconfig(ConfigEnum.lang) or 'en'
         return g.locale
     app.jinja_env.globals['get_locale'] = get_locale
     babel = Babel(app, locale_selector=get_locale)

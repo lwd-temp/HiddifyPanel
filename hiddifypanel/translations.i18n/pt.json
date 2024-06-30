@@ -164,6 +164,7 @@
   "Remote nodes are not supported yet!": "Nós remotos ainda não são suportados!",
   "Rename File": "Renomear arquivo",
   "Reset Filters": "Limpar Filtros",
+  "Reset Proxies": "",
   "Reset Usage Time:": "Tempo de reinicialização do uso do tráfego:",
   "Reset every month": "Por mês",
   "Reset package days": "📆 Redefinir dias do pacote",
@@ -842,7 +843,7 @@
     },
     "telegram": {
       "description": "Um proxy projetado para o Telegram ignorar a filtragem do Telegram",
-      "label": "Telegram Proxy"
+      "label": "Configurações do telegram"
     },
     "telegram_adtag": {
       "description": "É usado para mostrar um canal patrocinado na lista de chat do cliente. Para anunciar um canal, obtenha uma tag de @MTProxybot .\ndigite o código 0123456789ABCDEF0123456789ABCDEF nesse bot.",
